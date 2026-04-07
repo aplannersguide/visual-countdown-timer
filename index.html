@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visual Countdown Timer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="app-container">
+        <header style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+            <h1>Visual Timer</h1>
+            <div style="display: flex; gap: 8px;">
+                <button id="btn-fullscreen" class="btn outline" data-tooltip="Full Screen" style="padding: 10px;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg>
+                </button>
+                <button id="btn-pip" class="btn outline" data-tooltip="Picture in Picture" style="padding: 10px;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><rect x="12" y="14" width="7" height="5" rx="1" ry="1"></rect></svg>
+                </button>
+                <button id="btn-theme" class="btn outline" data-tooltip="Toggle Theme" style="padding: 10px; font-size: 20px;">🌓</button>
+            </div>
+        </header>
+        
+        <div class="content-wrapper">
+            <div class="controls-container glass-panel">
+                <div class="inputs-group">
+                    <div class="input-col">
+                        <label for="input-hrs">HRS</label>
+                        <input type="number" id="input-hrs" min="0" max="99" value="0" placeholder="00">
+                    </div>
+                    <div class="input-col">
+                        <label for="input-min">MIN</label>
+                        <input type="number" id="input-min" min="0" max="59" value="5" placeholder="00">
+                    </div>
+                    <div class="input-col">
+                        <label for="input-sec">SEC</label>
+                        <input type="number" id="input-sec" min="0" max="59" value="0" placeholder="00">
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <button id="btn-start" class="btn primary">Start</button>
+                    <button id="btn-pause" class="btn secondary" disabled>Pause</button>
+                    <button id="btn-reset" class="btn secondary">Reset</button>
+                </div>
+            </div>
+
+            <div class="timer-display-wrapper">
+                <div id="fullscreen-wrapper">
+                    <canvas id="timer-canvas" width="800" height="800"></canvas>
+                    <button id="btn-exit-fullscreen" class="btn secondary" style="display: none;">Exit Full Screen</button>
+                </div>
+                <div class="time-text" id="time-display">00:00:00</div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Hidden Video Element for PiP stream -->
+    <video id="pip-video" playsinline muted autoplay style="display: none;"></video>
+
+    <script src="script.js"></script>
+</body>
+</html>
