@@ -7,7 +7,7 @@ A beautiful visual countdown timer featuring a shrinking red disk, built with HT
 - **Glassmorphic Design**: Modern transparent panels.
 - **Picture-in-Picture (PiP)**: Click the pop-out button to detach the timer into a floating window that stays on top of other applications. It works by capturing the `<canvas>` state into a background `<video>` stream!
 
-![Visual Countdown Timer](./images/Visual Countdown Timer.png)
+![Visual Countdown Timer](./images/Visual%20Countdown%20Timer.png)
 
 ## How to run locally
 
